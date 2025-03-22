@@ -1,6 +1,6 @@
 # MeganetAutoRefBot
 
-join https://meganet.app/login?refcode=DV130H
+join [https://meganet.app/login?refcode=UH36G9]
 
 An automated solution for **Meganet wallet registration** and **point farming**, featuring advanced proxy and user-agent rotation support.
 
@@ -32,7 +32,7 @@ Ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/zcsaqueeb/Meganet.git
+   git clone https://github.com/airdropbomb/Meganet.git
    cd Meganet
    ```
 
