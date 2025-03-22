@@ -16,6 +16,16 @@ const proxies = fs
     .split("\n")
     .filter((proxy) => proxy.trim() !== "");
 
+// Banner ကို ဒီမှာ သတ်မှတ်ထားတယ်
+const banner = `
+       █████╗ ██████╗ ██████╗     ███╗   ██╗ ██████╗ ██████╗ ███████╗
+      ██╔══██╗██╔══██╗██╔══██╗    ████╗  ██║██╔═══██╗██╔══██╗██╔════╝
+      ███████║██║  ██║██████╔╝    ██╔██╗ ██║██║   ██║██║  ██║█████╗  
+      ██╔══██║██║  ██║██╔══██╗    ██║╚██╗██║██║   ██║██║  ██║██╔══╝  
+      ██║  ██║██████╔╝██████╔╝    ██║ ╚████║╚██████╔╝██████╔╝███████╗
+      ╚═╝  ╚═╝╚═════╝ ╚═════╝     ╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝  
+`;
+
 async function handlePing(wallet, registrationResult, proxy) {
     const walletId = wallet.id;
     let pingCount = 0;
@@ -163,10 +173,12 @@ async function processWalletTasks(wallet, registrationResult, proxy) {
 }
 
 async function main() {
+    // Banner ကို ဒီမှာ ပြသမယ်
+    logWithColor("SYSTEM", banner, "info");
     logWithColor("SYSTEM", `Starting Meganet bot for ${wallets.length} wallets...`, "info");
     logWithColor("SYSTEM", `Use proxy: ${config.useProxy ? "Yes" : "No"}`, "info");
 
-    const getRandomDelay = () => Math.floor(Math.random() * 5000) + 2000;
+    const getRandomDelay = () => Math.floor(Math.random() * 5000) + 2002;
 
     for (const wallet of wallets) {
         setTimeout(async () => {
@@ -197,5 +209,5 @@ async function main() {
 }
 
 main().catch((error) => {
-    console.error(`${colors.red}FATAL ERROR:${colors.reset} ${error.message}`);
+    logWithColor("SYSTEM", `FATAL ERROR: ${error.message}`, "error"); // colors.red အစား logWithColor သုံးလိုက်တယ်
 });
